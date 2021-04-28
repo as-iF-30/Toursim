@@ -1,0 +1,421 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Travelo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon.png}">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/css/flaticon.css}">
+    <link rel="stylesheet" th:href="@{/css/gijgo.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/slick.css}">
+    <link rel="stylesheet" th:href="@{/css/slicknav.css}">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                    <a href="">
+                                        <img th:src="@{/img/logo.png}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a class="active" href="../user/home">Home</a></li>
+                                            <li><a href="">Packages</a></li>
+                                                      
+                                            <li><a href="../logout">Logout</a></li>
+                                            
+                                            <li><div th:text="${name}"></div></li>
+                                            <li><a href="../user/dashboard">Bookings</a></li>
+                                            <li><div><form id="myForm" action="../user/delete"><a onclick="myFunction()">Delete Account</a></div></li></form>
+                                          <script>
+											function myFunction() {
+												if(confirm("All your Booking with Account will be Deleted")){
+													document.getElementById("myForm").submit()
+												}
+												else{
+													
+												}
+												}
+											</script>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                                <div class="social_wrap d-flex align-items-center justify-content-end">
+                                    <div class="number">
+                                        <p> <i class="fa fa-phone"></i> 10(256)-928 256</p>
+                                    </div>
+                                    <div class="social_links d-none d-xl-block">
+                                        <ul>
+                                            <li><a > <i class="fa fa-instagram"></i> </a></li>
+                                            <li><a > <i class="fa fa-linkedin"></i> </a></li>
+                                            <li><a > <i class="fa fa-facebook"></i> </a></li>
+                                            <li><a > <i class="fa fa-google-plus"></i> </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+  
+
+    
+    
+    <!-- popular_destination_area_start  -->
+
+    <div class="popular_places_area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb_70">
+                        <h3>Popular Places</h3>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            
+                <div  th:each="place : ${places}" class="col-lg-4 col-md-6">
+                    <div class="single_place">
+                        <div class="thumb">
+                            <img th:src="@{/img/place/1.png}" alt="">
+                            <a  class="prise" th:text="${place.cost}"></a>
+                        </div>
+                        <div class="place_info">
+                            <a th:href="@{../user/checkout?pid=}+${place.pid}"><h3 th:text="${place.destinationCity}"></h3></a>
+                            <p th:text="${place.sourceCity}"></p>
+                            <div class="rating_days d-flex justify-content-between">
+                                
+                                <div class="days">
+                                    <i class="fa fa-clock-o"></i>
+                                    <a th:text="${place.days}"> Days</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+
+    <div class="travel_variation_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_travel text-center">
+                        <div class="icon">
+                            <img th:src="@{/img/svg_icon/1.svg}" alt="">
+                        </div>
+                        <h3>Comfortable Journey</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_travel text-center">
+                        <div class="icon">
+                            <img th:src="@{/img/svg_icon/2.svg}" alt="">
+                        </div>
+                        <h3>Luxuries Hotel</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_travel text-center">
+                        <div class="icon">
+                            <img th:src="@{/img/svg_icon/3.svg}" alt="">
+                        </div>
+                        <h3>Travel Guide</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- testimonial_area  -->
+    <div class="testimonial_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="testmonial_active owl-carousel">
+                        <div class="single_carousel">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="single_testmonial text-center">
+                                        <div class="author_thumb">
+                                            <img th:src="@{/img/testmonial/author.png}" alt="">
+                                        </div>
+                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                                        <div class="testmonial_author">
+                                            <h3>- Micky Mouse</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_carousel">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="single_testmonial text-center">
+                                        <div class="author_thumb">
+                                            <img th:src="@{/img/testmonial/author.png}" alt="">
+                                        </div>
+                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                                        <div class="testmonial_author">
+                                            <h3>- Tom Mouse</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_carousel">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="single_testmonial text-center">
+                                        <div class="author_thumb">
+                                            <img th:src="@{/img/testmonial/author.png}" alt="">
+                                        </div>
+                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                                        <div class="testmonial_author">
+                                            <h3>- Jerry Mouse</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /testimonial_area  -->
+
+
+    
+
+
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-lg-4 ">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a >
+                                    <img th:src="@{/img/footer_logo.png}" alt="">
+                                </a>
+                            </div>
+                            <p>5th flora, 700/D kings road, green <br> lane New York-1782 <br>
+                                <a >+10 367 826 2567</a> <br>
+                                <a >contact@carpenter.com</a>
+                            </p>
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a >
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a >
+                                            <i class="ti-twitter-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a >
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a >
+                                            <i class="fa fa-pinterest"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a >
+                                            <i class="fa fa-youtube-play"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Company
+                            </h3>
+                            <ul class="links">
+                                <li><a >Home</a></li>
+                                <li><a >Packages</a></li>
+                                <li><a > About</a></li>
+                                <li><a > Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Popular destination
+                            </h3>
+                            <ul class="links double_links">
+                                <li><a >Indonesia</a></li>
+                                <li><a >America</a></li>
+                                <li><a >India</a></li>
+                                <li><a >Switzerland</a></li>
+                                <li><a >Italy</a></li>
+                                <li><a >Canada</a></li>
+                                <li><a >Franch</a></li>
+                                <li><a >England</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Instagram
+                            </h3>
+                            <div class="instagram_feed">
+                                <div class="single_insta">
+                                    <a >
+                                        <img th:src="@{/img/instagram/1.png}" alt="">
+                                    </a>
+                                </div>
+                                <div class="single_insta">
+                                    <a >
+                                        <img th:src="@{/img/instagram/2.png}" alt="">
+                                    </a>
+                                </div>
+                                <div class="single_insta">
+                                    <a >
+                                        <img th:src="@{/img/instagram/3.png}" alt="">
+                                    </a>
+                                </div>
+                                <div class="single_insta">
+                                    <a >
+                                        <img th:src="@{/img/instagram/4.png}" alt="">
+                                    </a>
+                                </div>
+                                <div class="single_insta">
+                                    <a >
+                                        <img th:src="@{/img/instagram/5.png}" alt="">
+                                    </a>
+                                </div>
+                                <div class="single_insta">
+                                    <a >
+                                        <img th:src="@{/img/instagram/6.png}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+
+
+  <!-- Modal -->
+  <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="serch_form">
+            <input type="text" placeholder="Search" >
+            <button type="submit">search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- link that opens popup -->
+
+    <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+    <script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/isotope.pkgd.min.js}"></script>
+    <script th:src="@{/js/ajax-form.js}"></script>
+    <script th:src="@{/js/waypoints.min.js}"></script>
+    <script th:src="@{/js/jquery.counterup.min.js}"></script>
+    <script th:src="@{/js/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/js/scrollIt.js}"></script>
+    <script th:src="@{/js/jquery.scrollUp.min.js}"></script>
+    <script th:src="@{/js/wow.min.js}"></script>
+    <script th:src="@{/js/nice-select.min.js}"></script>
+    <script th:src="@{/js/jquery.slicknav.min.js}"></script>
+    <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/gijgo.min.js}"></script>
+    <script th:src="@{/js/slick.min.js}"></script>
+   
+
+    
+    <!--contact js-->
+    <script th:src="@{/js/contact.js}"></script>
+    <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+    <script th:src="@{/js/jquery.form.js}"></script>
+    <script th:src="@{/js/jquery.validate.min.js}"></script>
+    <script th:src="@{/js/mail-script.js}"></script>
+
+
+    <script th:src="@{/js/main.js}"></script>
+    <script>
+        $('#datepicker').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+             rightIcon: '<span class="fa fa-caret-down"></span>'
+         }
+        });
+    </script>
+</body>
+
+</html>

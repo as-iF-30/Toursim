@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Order Confirmation</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+<style>
+	body {
+	padding: 40px;
+}
+.columns {
+	text-align: center;
+}
+.column {
+	box-shadow: inset 0 0 0 2px #ff4a52;
+	border-radius: 8px;
+	display: inline-block;
+	padding: 50px;
+	width: 60%;
+	color: #202c50;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+}
+.divider {
+	width: 40%;
+	height: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #ff4a52;
+	border: 0 none;
+	margin-top: 14px;
+	margin-bottom: 40px;
+}
+.success-extras p {
+	color: #202c50;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 2em;
+	font-weight: 300;
+	padding: 0 0 20px 0;
+	line-height: 1.2em;
+}
+p.success-lrg {
+	font-size: 2.4em;
+}
+.fa-check-circle {
+	color: #ff4a52;
+	font-size: 6em;
+	margin: 0 0 30px 0;
+}
+.action.primary {
+	background: #ff4a52;
+	border: none;
+	color: #fff;
+	display: inline-block;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 1.4rem;
+	box-sizing: border-box;
+	vertical-align: middle;
+	padding: 20px 20px;
+	margin: 20px 0 0 0;
+	text-decoration: none;
+}
+.action.primary:hover {
+	background: #ff0f1a;
+}
+@media screen and (max-width: 600px) { 
+		.column{
+			width: 80%;
+		}
+	}
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="columns">
+	<div class="column main"><input name="form_key" type="hidden" value="PefvQbePmuX6e2ZN">
+		<div id="authenticationPopup" data-bind="scope:'authenticationPopup'">
+			<div class="success-extras">
+				<i class="far fa-check-circle"></i>
+				<p>Thank you for booking with travelo!</p>
+				<p class="success-lrg">
+					“The journey of a thousand miles begins with a single step.”
+				</p>
+				<hr class="divider">
+			</div>
+		</div>
+		<div class="checkout-success">
+			<!-- fetch order id from db and show below-->
+			<p>Your order # is: <span th:text="${bid}"></span>.</p>
+			<p> Total Amount Deducted : <span th:text="${price}"></span>
+			<p>We'll email you an order confirmation with details and tracking info.</p>
+			<div class="actions-toolbar">
+				<div class="primary">
+					<a class="action primary continue" href="home">Book More</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>
